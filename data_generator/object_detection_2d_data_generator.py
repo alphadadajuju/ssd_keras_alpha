@@ -28,7 +28,6 @@ import cv2
 import csv
 import os
 import sys
-import lxml
 from tqdm import tqdm, trange
 try:
     import h5py
