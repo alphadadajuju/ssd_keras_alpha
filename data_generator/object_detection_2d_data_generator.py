@@ -28,6 +28,7 @@ import cv2
 import csv
 import os
 import sys
+import et_xmlfile
 from tqdm import tqdm, trange
 try:
     import h5py
@@ -478,7 +479,7 @@ class DataGenerator:
                 if not annotations_dir is None:
                     # Parse the XML file for this image.
                     with open(os.path.join(annotations_dir, image_id + '.xml')) as f:
-                        soup = BeautifulSoup(f, 'lxml')
+                        soup = BeautifulSoup(f, 'xml')
 
                     folder = soup.folder.text # In case we want to return the folder in addition to the image file name. Relevant for determining which dataset an image belongs to.
                     #filename = soup.filename.text
