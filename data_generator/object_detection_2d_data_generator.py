@@ -478,6 +478,8 @@ class DataGenerator:
                 if not annotations_dir is None:
                     # Parse the XML file for this image.
                     with open(os.path.join(annotations_dir, image_id + '.xml')) as f:
+                        print ("f")
+                        print (f)
                         soup = BeautifulSoup(f, 'html.parser')
 
                     folder = soup.folder.text # In case we want to return the folder in addition to the image file name. Relevant for determining which dataset an image belongs to.
