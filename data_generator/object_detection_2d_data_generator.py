@@ -443,6 +443,8 @@ class DataGenerator:
             None by default, optionally lists for whichever are available of images, image filenames, labels, image IDs,
             and a list indicating which boxes are annotated with the label "difficult".
         '''
+
+        '''
         # Set class members.
         self.images_dirs = images_dirs
         self.annotations_dirs = annotations_dirs
@@ -539,6 +541,7 @@ class DataGenerator:
                 with Image.open(filename) as image:
                     self.images.append(np.array(image, dtype=np.uint8))
 
+        '''
         if ret:
             return self.images, self.filenames, self.labels, self.image_ids, self.eval_neutral
 
