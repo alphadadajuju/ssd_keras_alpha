@@ -444,7 +444,7 @@ class DataGenerator:
             and a list indicating which boxes are annotated with the label "difficult".
         '''
 
-        '''
+        
         # Set class members.
         self.images_dirs = images_dirs
         self.annotations_dirs = annotations_dirs
@@ -479,11 +479,8 @@ class DataGenerator:
 
                 if not annotations_dir is None:
                     # Parse the XML file for this image.
-                    #print ("before open")
-                    #with open(os.path.join(annotations_dir, image_id + '.xml')) as f:
-                        #print ("enter open")
-                        #print (f)
-                        #soup = BeautifulSoup(f, 'html.parser')
+                    with open(os.path.join(annotations_dir, image_id + '.xml')) as f:
+                        soup = BeautifulSoup(f, 'html.parser')
 
                     folder = soup.folder.text # In case we want to return the folder in addition to the image file name. Relevant for determining which dataset an image belongs to.
                     #filename = soup.filename.text
@@ -541,7 +538,7 @@ class DataGenerator:
                 with Image.open(filename) as image:
                     self.images.append(np.array(image, dtype=np.uint8))
 
-        '''
+        
         if ret:
             return self.images, self.filenames, self.labels, self.image_ids, self.eval_neutral
 
